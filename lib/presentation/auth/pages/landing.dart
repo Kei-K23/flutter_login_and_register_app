@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_and_register_app/presenation/auth/pages/login.dart';
-import 'package:flutter_login_and_register_app/presenation/auth/pages/sign_up.dart';
+import 'package:flutter_login_and_register_app/presentation/auth/pages/login.dart';
+import 'package:flutter_login_and_register_app/presentation/auth/pages/sign_up.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Landing extends StatelessWidget {
-  const Landing({Key? key}) : super(key: key);
+class LandingScreen extends StatelessWidget {
+  const LandingScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,9 @@ class Landing extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Login()),
+                    MaterialPageRoute(
+                      builder: (context) => const LoginScreen(),
+                    ),
                   );
                 },
                 child: Text('Login'),
@@ -72,7 +74,9 @@ class Landing extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SignUp()),
+                    MaterialPageRoute(
+                      builder: (context) => const SignUpScreen(),
+                    ),
                   );
                 },
                 child: const Text('Create an account'),

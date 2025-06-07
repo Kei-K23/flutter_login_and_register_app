@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_and_register_app/presenation/auth/pages/sign_up.dart';
+import 'package:flutter_login_and_register_app/presentation/auth/pages/forgot-password.dart';
+import 'package:flutter_login_and_register_app/presentation/auth/pages/sign_up.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,11 +75,16 @@ class Login extends StatelessWidget {
                   textStyle: WidgetStateProperty.all(TextStyle(fontSize: 16)),
                 ),
                 onPressed: () {
-                  print("Forgot");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ForgotPasswordScreen(),
+                    ),
+                  );
                 },
                 child: Text('Forgot password?'),
               ),
-              const SizedBox(height: 100),
+              const SizedBox(height: 50),
               TextButton(
                 style: TextButton.styleFrom(
                   minimumSize: const Size(double.infinity, 50),
@@ -108,7 +114,9 @@ class Login extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SignUp()),
+                    MaterialPageRoute(
+                      builder: (context) => const SignUpScreen(),
+                    ),
                   );
                 },
                 child: const Text('Create an account'),

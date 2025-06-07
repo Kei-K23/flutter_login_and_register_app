@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_and_register_app/presenation/auth/pages/login.dart';
-import 'package:flutter_login_and_register_app/presenation/auth/pages/terms_of_service.dart';
+import 'package:flutter_login_and_register_app/presentation/auth/pages/login.dart';
+import 'package:flutter_login_and_register_app/presentation/auth/pages/terms_of_service.dart';
 
-class SignUp extends StatelessWidget {
-  const SignUp({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +91,7 @@ class SignUp extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const TermsOfService(),
+                          builder: (context) => const TermsOfServiceScreen(),
                         ),
                       );
                     },
@@ -99,8 +99,7 @@ class SignUp extends StatelessWidget {
                   ),
                 ],
               ),
-
-              const SizedBox(height: 100),
+              const SizedBox(height: 50),
               TextButton(
                 style: TextButton.styleFrom(
                   minimumSize: const Size(double.infinity, 50),
@@ -139,7 +138,9 @@ class SignUp extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Login()),
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
                       );
                     },
                     child: Text(
