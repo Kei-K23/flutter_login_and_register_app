@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_and_register_app/presentation/auth/pages/forgot-password.dart';
+import 'package:flutter_login_and_register_app/presentation/auth/pages/forgot_password.dart';
 import 'package:flutter_login_and_register_app/presentation/auth/pages/sign_up.dart';
 
 class LoginScreen extends StatelessWidget {
