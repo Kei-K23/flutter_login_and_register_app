@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_and_register_app/presenation/auth/pages/login.dart';
+import 'package:flutter_login_and_register_app/presenation/auth/pages/sign_up.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Landing extends StatelessWidget {
@@ -68,7 +69,12 @@ class Landing extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SignUp()),
+                  );
+                },
                 child: const Text('Create an account'),
               ),
             ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_and_register_app/presenation/auth/pages/sign_up.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -104,7 +105,12 @@ class Login extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SignUp()),
+                  );
+                },
                 child: const Text('Create an account'),
               ),
             ],
