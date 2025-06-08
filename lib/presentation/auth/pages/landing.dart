@@ -4,7 +4,7 @@ import 'package:flutter_login_and_register_app/presentation/auth/pages/sign_up.d
 import 'package:flutter_svg/flutter_svg.dart';
 
 class LandingScreen extends StatelessWidget {
-  const LandingScreen({Key? key}) : super(key: key);
+  const LandingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

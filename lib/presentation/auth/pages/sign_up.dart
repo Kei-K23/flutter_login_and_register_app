@@ -3,7 +3,7 @@ import 'package:flutter_login_and_register_app/presentation/auth/pages/login.dar
 import 'package:flutter_login_and_register_app/presentation/auth/pages/terms_of_service.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

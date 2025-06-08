@@ -10,7 +10,7 @@ class OtpPinField extends StatefulWidget {
   final bool obscure;
 
   const OtpPinField({
-    Key? key,
+    super.key,
     this.length = 6,
     required this.onCompleted,
     this.spacing = 12,
@@ -18,7 +18,7 @@ class OtpPinField extends StatefulWidget {
     this.textStyle = const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
     this.borderColor = Colors.grey,
     this.obscure = false,
-  }) : super(key: key);
+  });
 
   @override
   State<OtpPinField> createState() => _OtpPinFieldState();

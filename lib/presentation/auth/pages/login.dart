@@ -3,7 +3,7 @@ import 'package:flutter_login_and_register_app/presentation/auth/pages/forgot_pa
 import 'package:flutter_login_and_register_app/presentation/auth/pages/sign_up.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

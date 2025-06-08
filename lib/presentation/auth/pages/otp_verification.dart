@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_and_register_app/common/ui/otp_pin_field.dart';
 
 class OtpVerificationScreen extends StatelessWidget {
-  const OtpVerificationScreen({Key? key}) : super(key: key);
+  const OtpVerificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
