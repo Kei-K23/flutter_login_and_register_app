@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_login_and_register_app/common/theme/bloc/theme_bloc.dart';
 import 'package:flutter_login_and_register_app/presentation/auth/pages/login.dart';
 import 'package:flutter_login_and_register_app/presentation/auth/pages/terms_of_service.dart';
 
@@ -7,12 +9,15 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeBloc = BlocProvider.of<ThemeBloc>(context);
     final usernameController = TextEditingController();
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: themeBloc.state.appTheme.isLight
+          ? Colors.white
+          : Colors.black,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: SafeArea(

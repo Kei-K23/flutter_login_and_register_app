@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_login_and_register_app/common/theme/bloc/theme_bloc.dart';
 import 'package:flutter_login_and_register_app/common/ui/otp_pin_field.dart';
 
 class OtpVerificationScreen extends StatelessWidget {
@@ -6,9 +8,17 @@ class OtpVerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeBloc = BlocProvider.of<ThemeBloc>(context);
+
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(backgroundColor: Colors.white),
+      appBar: AppBar(
+        backgroundColor: themeBloc.state.appTheme.isLight
+            ? Colors.white
+            : Colors.black,
+      ),
+      backgroundColor: themeBloc.state.appTheme.isLight
+          ? Colors.white
+          : Colors.black,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: SingleChildScrollView(

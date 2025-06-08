@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_and_register_app/presentation/auth/pages/landing.dart';
-import 'package:flutter_login_and_register_app/presentation/auth/pages/otp_verification.dart';
-import 'package:flutter_login_and_register_app/presentation/auth/pages/reset_password.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_login_and_register_app/common/theme/bloc/theme_bloc.dart';
+import 'package:flutter_login_and_register_app/common/theme/bloc/theme_event.dart';
+import 'package:flutter_login_and_register_app/common/theme/bloc/theme_state.dart';
 import 'package:flutter_login_and_register_app/presentation/protected/pages/home.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    BlocProvider(
+      create: (context) => ThemeBloc()..add(LoadTheme()),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,13 +20,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: HomeScreen(),
+    return BlocBuilder<ThemeBloc, ThemeState>(
+      builder: (context, state) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: state.brightness == Brightness.light ? lightTheme : darkTheme,
+          home: HomeScreen(),
+        );
+      },
     );
   }
 }

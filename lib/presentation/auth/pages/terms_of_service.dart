@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_login_and_register_app/common/theme/bloc/theme_bloc.dart';
 
 class TermsOfServiceScreen extends StatelessWidget {
   const TermsOfServiceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeBloc = BlocProvider.of<ThemeBloc>(context);
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: themeBloc.state.appTheme.isLight
+          ? Colors.white
+          : Colors.black,
       appBar: AppBar(
         title: const Text('Terms of Service'),
-        backgroundColor: Colors.white,
+        backgroundColor: themeBloc.state.appTheme.isLight
+            ? Colors.white
+            : Colors.black,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),

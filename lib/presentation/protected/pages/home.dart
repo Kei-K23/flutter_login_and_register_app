@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_login_and_register_app/common/theme/bloc/theme_bloc.dart';
+import 'package:flutter_login_and_register_app/common/theme/bloc/theme_event.dart';
+import 'package:flutter_login_and_register_app/common/theme/bloc/theme_state.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeBloc = BlocProvider.of<ThemeBloc>(context);
     final emailController = TextEditingController(text: "user1@example.com");
     final usernameController = TextEditingController(text: "John Doe");
     final phoneController = TextEditingController(text: "+959 987321743");
@@ -12,9 +17,42 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Your Profile"),
-        backgroundColor: Colors.white,
+        backgroundColor: themeBloc.state.brightness == Brightness.light
+            ? Colors.white
+            : Colors.black,
+        actionsPadding: const EdgeInsets.symmetric(horizontal: 25),
+        actions: [
+          ElevatedButton(
+            style: ButtonStyle(
+              foregroundColor: WidgetStateProperty.all(
+                themeBloc.state.appTheme.isLight
+                    ? Colors.blue
+                    : Colors.blue.shade200,
+              ),
+              backgroundColor: WidgetStateProperty.all(
+                themeBloc.state.appTheme.isLight
+                    ? Colors.blue.shade50
+                    : Colors.blue.shade900,
+              ),
+            ),
+            onPressed: () {
+              final currentTheme = context.read<ThemeBloc>().state.appTheme;
+              final newTheme = currentTheme == AppTheme.light
+                  ? AppTheme.dark
+                  : AppTheme.light;
+              themeBloc.add(ThemeChanged(newTheme));
+            },
+            child: Icon(
+              themeBloc.state.appTheme.isLight
+                  ? Icons.dark_mode
+                  : Icons.light_mode,
+            ),
+          ),
+        ],
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: themeBloc.state.brightness == Brightness.light
+          ? Colors.white
+          : Colors.black,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: SafeArea(
@@ -33,7 +71,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Text(
                 "John Doe",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 40),
               TextField(
